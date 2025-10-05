@@ -1,0 +1,181 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.register-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 400px;
+  max-width: 90%;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: #2684ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(38, 132, 255, 0.2);
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  margin-top: 24px;
+}
+
+.btn-register {
+  width: 100%;
+  background-color: #2684ff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-register:hover {
+  background-color: #1a73e8;
+}
+
+.btn-register:active {
+  background-color: #1567d3;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+.login-link a {
+  color: #2684ff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el indicador de fortaleza de contraseña */
+.password-strength-meter {
+  margin-top: 8px;
+}
+
+.strength-bar {
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.strength-progress {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.strength-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.weak {
+  color: #ff5252;
+}
+
+.strength-progress:not(.medium):not(.good):not(.strong) {
+  background-color: #ff5252;
+}
+
+.medium {
+  color: #ffab40;
+}
+
+.strength-progress.medium {
+  background-color: #ffab40;
+}
+
+.good {
+  color: #69f0ae;
+}
+
+.strength-progress.good {
+  background-color: #69f0ae;
+}
+
+.strong {
+  color: #00c853;
+}
+
+.strength-progress.strong {
+  background-color: #00c853;
+}
+
+/* Estilos para requisitos de contraseña */
+.password-requirements {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.password-requirements ul {
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+.requirement-error {
+  color: #ff5252;
+}
+
+.requirement-success {
+  color: #00c853;
+}
+
+.password-match-error {
+  color: #ff5252;
+  font-size: 12px;
+  margin-top: 5px;
+}

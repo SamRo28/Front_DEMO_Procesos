@@ -1,0 +1,84 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Crear una cuenta</h2>
+    
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    
+    <div class="form-group">
+      <label for="username">Nombre de usuario</label>
+      <input 
+        type="text" 
+        id="username" 
+        [(ngModel)]="username" 
+        placeholder="Introduce tu nombre de usuario"
+        class="form-control" 
+        required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Correo electrónico</label>
+      <input 
+        type="email" 
+        id="email" 
+        [(ngModel)]="email" 
+        placeholder="Introduce tu correo electrónico"
+        class="form-control" 
+        required>
+    </div>
+    
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input 
+        type="password" 
+        id="password" 
+        [(ngModel)]="password" 
+        (input)="checkPasswordStrength()"
+        placeholder="Introduce tu contraseña"
+        class="form-control" 
+        required>
+        
+      <!-- Indicador de seguridad de contraseña -->
+      <div *ngIf="password" class="password-strength-meter">
+        <div class="strength-bar">
+          <div class="strength-progress" [style.width.%]="passwordStrength"></div>
+        </div>
+        <span class="strength-text" [ngClass]="{'weak': passwordStrength <= 25, 'medium': passwordStrength > 25 && passwordStrength <= 50, 'good': passwordStrength > 50 && passwordStrength <= 75, 'strong': passwordStrength > 75}">
+          {{ passwordFeedback }}
+        </span>
+      </div>
+      
+      <!-- Lista de requisitos de contraseña -->
+      <div *ngIf="password" class="password-requirements">
+        <ul>
+          <li *ngFor="let error of passwordErrors" class="requirement-error">
+            {{ error }}
+          </li>
+          <li *ngIf="passwordStrength >= 100" class="requirement-success">
+            ¡Contraseña válida!
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="confirmPassword">Confirmar contraseña</label>
+      <input 
+        type="password" 
+        id="confirmPassword" 
+        [(ngModel)]="confirmPassword" 
+        placeholder="Confirma tu contraseña"
+        class="form-control" 
+        required>
+      <div *ngIf="password && confirmPassword && password !== confirmPassword" class="password-match-error">
+        Las contraseñas no coinciden
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button class="btn-register" (click)="register()">Registrarse</button>
+      <p class="login-link">¿Ya tienes una cuenta? <a (click)="goToLogin()">Inicia sesión</a></p>
+    </div>
+  </div>
+</div>
