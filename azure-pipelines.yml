@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: "local-agent-pool"
 
 stages:
 - stage: Preparation
@@ -17,7 +17,6 @@ stages:
     - script: node --version
       displayName: "Verificar versión de Node.js"
     - script: echo "Instalando dependencias..."
-    - script: npm install
       displayName: "Instalar dependencias"
     - script: echo "Dependencias instaladas correctamente."
 
@@ -28,7 +27,6 @@ stages:
   - job: BuildJob
     steps:
     - script: echo "=== Build Stage (Frontend) ==="
-    - script: npm run build --if-present
       displayName: "Construir proyecto Angular"
     - script: echo "Compilación de Angular completada."
 
