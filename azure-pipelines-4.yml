@@ -1,0 +1,48 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Preparation
+  displayName: "Preparation"
+  jobs:
+  - job: PreparationJob
+    steps:
+    - script: echo "=== Preparation Stage (Frontend) ==="
+    - script: node --version
+      displayName: "Verificar versión de Node.js"
+    - script: echo "Instalando dependencias..."
+      displayName: "Instalar dependencias"
+    - script: echo "Dependencias instaladas correctamente."
+
+- stage: Build
+  displayName: "Build"
+  dependsOn: Preparation
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: echo "=== Build Stage (Frontend) ==="
+      displayName: "Construir proyecto Angular"
+    - script: echo "Compilación de Angular completada."
+
+- stage: Tests
+  displayName: "Tests"
+  dependsOn: Build
+  jobs:
+  - job: TestJob
+    steps:
+    - script: echo "=== Tests Stage (Frontend) ==="
+    - script: echo "Aquí se ejecutarían los tests unitarios de Angular."
+    - script: echo "Tests simulados correctamente."
+
+- stage: Deployment
+  displayName: "Deployment"
+  dependsOn: Tests
+  jobs:
+  - job: DeployJob
+    steps:
+    - script: echo "=== Deployment Stage (Frontend) ==="
+    - script: echo "Despliegue simulado del frontend."
+    - script: echo "Pipeline frontend completado correctamente."
